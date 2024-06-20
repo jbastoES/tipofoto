@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,5 +45,9 @@ public class TipoFotoServicio {
 
     public List<Tipofoto> findByCodtipofoto(Long codtipofoto) {
         return tipoFotoRepositorio.findByCodtipofoto(codtipofoto);
+    }
+
+    public List<String> findNombreByCodtipofoto(Long codtipofoto) {
+        return tipoFotoRepositorio.findNombreByCodtipofoto(codtipofoto);
     }
 }

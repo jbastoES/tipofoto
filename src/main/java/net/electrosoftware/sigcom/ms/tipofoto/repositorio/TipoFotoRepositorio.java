@@ -18,11 +18,6 @@ public interface TipoFotoRepositorio extends JpaRepository<Tipofoto, Long >, Jpa
 
     List<Tipofoto> findByCodtipofoto(Long codtipofoto);
 
-
-    //@Query("SELECT MAX(t.CODTIPOFOTO) FROM SGC_TIPOFOTO t")
-    //Long  findMaxCodigoTipoFoto();
-
-    //@Query("SELECT s FROM SGC_TIPOFOTO s WHERE s.CODTIPOFOTO = :codtipofoto")
-    //List<Tipofoto> findBycodtipofoto(double codtipofoto);
-
+    @Query(value = "SELECT t.nombretipofoto FROM sgc_tipofoto t WHERE t.codtipofoto = :codtipofoto", nativeQuery = true)
+    List<String> findNombreByCodtipofoto(@Param("codtipofoto") Long codtipofoto);
 }
